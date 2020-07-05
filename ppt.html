@@ -1,0 +1,46 @@
+<button  style="margin-left:500px " onclick="alert('Clique nas fotos para escolher um objeto.'+'\n'+'A cpu vai jogar aleatoriamente um dos numeros 1,2 e 3 em que:'+'\n'+'1 = pedra'+'\n'+'2 = papel'+'\n'+'3 = tesoura'+'\n'+'serão 3 partidas, quem fizer mais pontos ganha'+'\n'+'Aperte F5 para reiniciar o jogo'+'\n'+'Boa sorte ae meu consagrado')"
+ ><font size="5">clique para visualizar as regras</font></button>
+<br><br><br>
+<form><button type="button"><img width="200" onclick="game('pedra')" id="pe" src="https://www.infoescola.com/wp-content/uploads/2007/05/rocha-granito.jpg"></button></form>
+<form><button style="margin-left: 550px" type="button"><img onclick="game('papel')" id="pa" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Paper_sheet.jpg/200px-Paper_sheet.jpg"></button></form>
+<form><button style="margin-left: 1000px" type="button"><img width="200" onclick="game('tesoura')" id="te" src="https://media.istockphoto.com/photos/scissors-picture-id93086025?k=6&m=93086025&s=612x612&w=0&h=yyx0OwW5jNkc3_U6hd1wFFkUpOpSwPcdhvE-vj1hh50="></button>
+<body style="background-color: #FA8072">
+<script type="text/javascript">
+  var pedra = 1;  papel = 2 ;  tesoura = 3;  turno = 0 ; placarjo =  0; placarpc = 0; jogador = prompt("Digite seu nome, nobre guerreiro.");
+
+  alert("Bem vindo ao jogo "+jogador+", e boa sorte, vai precisar...");
+  function game(jogador){
+  turno+=1;
+  var pc= parseInt(Math.random()*3-(-1));
+  if (jogador == 'pedra' && pc == 2 || jogador == 'papel' && pc == 3 || jogador == 'tesoura' && pc == 1 ) {
+      alert("voce perdeu, pc jogou: "+ pc);
+      placarpc+=1;
+      alert("Placar:\n" + "player - "+placarjo + "\npc - " +placarpc);
+  }
+  if (jogador == 'pedra' && pc == 3 || jogador == 'papel' && pc == 1 || jogador == 'tesoura' && pc == 2 ) {
+      alert("voce ganhou, pc jogou: "+ pc);
+      placarjo+=1;
+      alert("Placar:\n" + "player - "+placarjo + "\npc - " +placarpc);
+  }
+  if (jogador == 'pedra' && pc == 1 || jogador == 'papel' && pc == 2 || jogador == 'tesoura' && pc == 3 ) {
+      alert("Deu empate, pc jogou: "+ pc);
+      placarjo+=1; placarpc+=1;
+      alert("Placar:\n" + "player - "+placarjo + "\npc - " +placarpc);
+  }
+  if (turno>=3 && placarjo > placarpc) {
+    alert("Tu venceu a partida.\n"+"placar final: "+placarjo+" a "+ placarpc)
+    document.write("<img src = https://media1.tenor.com/images/4673b4393880592ea27b49fc3d97b0d6/tenor.gif?itemid=13206050>")
+  }
+  if (turno>=3 && placarjo < placarpc) {
+    alert("Tu perdeu a partida.\n"+"placar final: "+placarjo+" a "+ placarpc)
+    document.write("<img src = http://www.reactiongifs.com/wp-content/uploads/2013/03/robin-llorando.gif>")
+  }
+  if (turno>=3 && placarjo == placarpc) {
+    alert("Partida empatou.\n"+"placar final: "+placarjo+" a "+ placarpc)
+    document.write("<img src = http://www.reactiongifs.com/wp-content/uploads/2013/02/tied.gif>")
+  }
+}
+</script>
+<br>
+<button onclick="alert('Jogo feito por:'+'\n'+'Marcelo Chaves'+'\n'+'Pedro Fonseca')">Créditos</button>
+
